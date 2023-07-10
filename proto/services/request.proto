@@ -1,0 +1,22 @@
+syntax = "proto3";
+package client;
+
+import "google/protobuf/empty.proto";
+
+service RequestService{
+    rpc Submit(Request) returns (google.protobuf.Empty);
+}
+
+message Request{
+    bool isLast = 1;
+    repeated int32 keys = 2;
+    repeated bool isWrite = 3;
+    repeated string values = 4;
+    uint32 localId = 5;
+    uint64 globalId = 6;
+    uint64 priorityId = 7;
+    uint32 waitCounter = 8;
+    string client_address = 9;
+    uint32 rerun_times = 10;
+    uint64 temp_timestamp = 11;
+  }
